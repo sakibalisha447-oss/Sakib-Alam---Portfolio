@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1333" width="100%" height="100%">
+  <defs>
+    <!-- Porsche Orange Gradient -->
+    <linearGradient id="porscheOrange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#ff5a10" />
+      <stop offset="50%" stopColor="#ff4500" />
+      <stop offset="100%" stopColor="#e03200" />
+    </linearGradient>
+
+    <!-- Metallic Chrome for PORSCHE Logotype -->
+    <linearGradient id="chromePORSCHE" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#1a1a1a" />
+      <stop offset="35%" stopColor="#404040" />
+      <stop offset="50%" stopColor="#151515" />
+      <stop offset="85%" stopColor="#303030" />
+      <stop offset="100%" stopColor="#111111" />
+    </linearGradient>
+
+    <!-- 3D 911 Extrusion Gradients -->
+    <linearGradient id="extrudeFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#ff7324" />
+      <stop offset="60%" stopColor="#ff4d00" />
+      <stop offset="100%" stopColor="#d63600" />
+    </linearGradient>
+    <linearGradient id="extrudeDepth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#801800" />
+      <stop offset="100%" stopColor="#380600" />
+    </linearGradient>
+
+    <!-- Red Carmine Porsche Paint Gradient -->
+    <linearGradient id="carmineRed" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stopColor="#ff3b30" />
+      <stop offset="40%" stopColor="#d91e18" />
+      <stop offset="80%" stopColor="#990000" />
+      <stop offset="100%" stopColor="#550000" />
+    </linearGradient>
+
+    <!-- Ambient Shadow Filter -->
+    <filter id="carGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#ff4500" flood-opacity="0.28" />
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian Black Background -->
+  <rect width="1000" height="1333" fill="#060608" />
+
+  <!-- Left Porsche Orange Vertical Color Block -->
+  <rect x="55" y="0" width="220" height="920" fill="url(#porscheOrange)" />
+
+  <!-- "PORSCHE" Brushed Steel Tag Inside Orange Bar -->
+  <g transform="translate(165, 80)">
+    <text
+      x="0"
+      y="0"
+      text-anchor="middle"
+      font-family="'Space Grotesk', 'Inter', 'Helvetica Neue', Arial, sans-serif"
+      font-weight="900"
+      font-size="28"
+      letter-spacing="14"
+      fill="url(#chromePORSCHE)"
+    >PORSCHE</text>
+  </g>
+
+  <!-- Top Right White Porsche Silhouette Graphic -->
+  <g transform="translate(560, 110)">
+    <!-- White Sports Car Aerodynamic Form -->
+    <path
+      d="M 40,90
+         C 80,45 160,30 230,35
+         C 290,40 330,75 350,110
+         L 370,125
+         C 350,135 310,138 270,136
+         C 240,110 210,110 180,135
+         L 70,135
+         C 55,120 40,115 15,130
+         L -10,120
+         C 0,105 20,95 40,90
+         Z"
+      fill="#f4f4f6"
+    />
+    <!-- Cockpit Canopy & Windows -->
+    <path
+      d="M 120,60 C 150,38 200,38 230,55 L 245,85 L 110,85 Z"
+      fill="#18181b"
+    />
+    <!-- Wheel Wells & Dark Alloy Wheels -->
+    <circle cx="50" cy="130" r="28" fill="#18181b" stroke="#52525b" stroke-width="4" />
+    <circle cx="280" cy="130" r="30" fill="#18181b" stroke="#52525b" stroke-width="4" />
+    <!-- Aerodynamic Headlamp Light Beam -->
+    <polygon points="350,110 380,115 350,122" fill="#38bdf8" opacity="0.8" />
+  </g>
+
+  <!-- Center Stage: Glossy Carmine Red Porsche Cayman GTS Showroom Silhouette -->
+  <g transform="translate(420, 480)" filter="url(#carGlow)">
+    <!-- Showroom Floor Reflection -->
+    <ellipse cx="220" cy="185" rx="270" ry="30" fill="rgba(255, 69, 0, 0.22)" />
+    
+    <!-- Red Aerodynamic Bodywork -->
+    <path
+      d="M -30,120
+         C 30,60 140,25 240,28
+         C 320,30 380,65 440,110
+         C 460,125 470,145 450,158
+         L 430,165
+         C 400,135 340,130 310,165
+         L 130,165
+         C 110,130 50,130 20,165
+         L -20,160
+         C -40,150 -45,135 -30,120
+         Z"
+      fill="url(#carmineRed)"
+      stroke="#ff6b60"
+      stroke-width="2"
+    />
+
+    <!-- Coupe Roofline & Tinted Glass -->
+    <path
+      d="M 120,45 C 180,26 260,26 310,50 L 330,95 L 90,95 Z"
+      fill="#09090b"
+      stroke="#27272a"
+      stroke-width="1.5"
+    />
+    <path d="M 180,45 L 180,95" stroke="#3f3f46" stroke-width="3" />
+
+    <!-- Wheels (Front & Rear Performance Alloys) -->
+    <circle cx="75" cy="165" r="38" fill="#09090b" stroke="#a1a1aa" stroke-width="6" />
+    <circle cx="75" cy="165" r="16" fill="#ff4500" />
+    <circle cx="370" cy="165" r="40" fill="#09090b" stroke="#a1a1aa" stroke-width="6" />
+    <circle cx="370" cy="165" r="16" fill="#ff4500" />
+
+    <!-- Xenon Lit Headlamps -->
+    <polygon points="440,110 470,118 445,128" fill="#e0f2fe" />
+    <line x1="455" y1="120" x2="495" y2="122" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Left Overlapping Monumental Condensed Headline -->
+  <g
+    font-family="'Syne', 'Impact', 'Arial Black', sans-serif"
+    font-weight="900"
+    font-size="160"
+    letter-spacing="-3"
+    fill="#ffffff"
+  >
+    <text x="75" y="410">WHEN</text>
+    <text x="75" y="555">PRO</text>
+    <text x="75" y="700">IS</text>
+    <text x="75" y="845">HERE</text>
+  </g>
+
+  <!-- Bottom-Right Monumental 3D Extruded "911" -->
+  <g transform="translate(680, 930)">
+    <!-- Shadow Base -->
+    <text x="10" y="14" font-family="'Syne', 'Impact', sans-serif" font-weight="900" font-size="210" fill="#000000" opacity="0.6">911</text>
+    <!-- 3D Extrusion Side Wall -->
+    <text x="6" y="8" font-family="'Syne', 'Impact', sans-serif" font-weight="900" font-size="210" fill="url(#extrudeDepth)">911</text>
+    <text x="3" y="4" font-family="'Syne', 'Impact', sans-serif" font-weight="900" font-size="210" fill="#bf360c">911</text>
+    <!-- Front Face -->
+    <text x="0" y="0" font-family="'Syne', 'Impact', sans-serif" font-weight="900" font-size="210" fill="url(#extrudeFace)">911</text>
+  </g>
+
+  <!-- Bottom Editorial & Provenance Typography -->
+  <g transform="translate(75, 1140)" fill="#ffffff" font-family="'Space Grotesk', 'Inter', sans-serif">
+    <!-- Creator Tag -->
+    <text x="0" y="0" font-size="20" font-weight="700" letter-spacing="3" fill="#ff5a10">@designsfleek</text>
+
+    <!-- Historic Endurance Racing Provenance Paragraph -->
+    <g font-size="14" font-weight="400" fill="#d4d4d8" opacity="0.9" letter-spacing="0.5">
+      <text x="0" y="32">In the mid-1970s, the naturally aspirated 911 Carrera RSR won world championship races</text>
+      <text x="0" y="56">including Targa Florio and the 24 Hours of Daytona. The 911-derived 935 turbo also won</text>
+      <text x="0" y="80">the 24 Hours of Le Mans in 1979. Porsche won the World Championship for Makes</text>
+      <text x="0" y="104">in 1976, 1977, 1978, and 1979 with 911-derived models.</text>
+    </g>
+  </g>
+</svg>

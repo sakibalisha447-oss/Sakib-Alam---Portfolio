@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Rich Gold Texture Gradient & Pattern -->
+    <radialGradient id="goldSheen" cx="45%" cy="40%" r="65%">
+      <stop offset="0%" stopColor="#e5c87e" />
+      <stop offset="35%" stopColor="#cda556" />
+      <stop offset="70%" stopColor="#b48b3c" />
+      <stop offset="100%" stopColor="#8d6622" />
+    </radialGradient>
+
+    <!-- Noise filter for antique parchment/gold foil effect -->
+    <filter id="goldNoise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.18 0" in="noise" result="coloredNoise" />
+      <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite" />
+      <feBlend mode="multiply" in="composite" in2="SourceGraphic" />
+    </filter>
+
+    <!-- Top Text Curved Path -->
+    <path id="topArc" d="M 185,400 A 215,215 0 0,1 615,400" />
+    <!-- Bottom Text Curved Path -->
+    <path id="bottomArc" d="M 615,400 A 215,215 0 0,1 185,400" />
+  </defs>
+
+  <!-- Gold Textured Base Canvas -->
+  <rect width="800" height="800" fill="url(#goldSheen)" />
+  <rect width="800" height="800" fill="url(#goldSheen)" filter="url(#goldNoise)" opacity="0.6" />
+
+  <!-- Clean White Central Medallion Circle -->
+  <circle cx="400" cy="400" r="260" fill="#ffffff" filter="drop-shadow(0 15px 35px rgba(80,50,10,0.35))" />
+
+  <!-- Circular Top Text: FAIZAN KHAN GAMERZ -->
+  <text fill="#1a1a1a" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="700" font-size="28" letter-spacing="16">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+      FAIZAN KHAN GAMERZ
+    </textPath>
+  </text>
+
+  <!-- Circular Bottom Text: GAMING CHANNEL -->
+  <text fill="#1a1a1a" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="700" font-size="26" letter-spacing="18">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+      GAMING CHANNEL
+    </textPath>
+  </text>
+
+  <!-- Central Bold Vintage Woodblock Monogram: FKG -->
+  <g transform="translate(400, 425)">
+    <!-- Letter F -->
+    <!-- Vintage decorative slab with rounded carved notches -->
+    <path
+      d="M -150,-90
+         C -140,-90 -125,-85 -125,-75
+         L -125,-30
+         C -110,-35 -90,-40 -70,-20
+         C -75,-10 -80,5 -95,5
+         L -125,5
+         L -125,55
+         C -125,75 -135,80 -150,80
+         L -170,80
+         C -185,80 -195,75 -195,55
+         L -195,-65
+         C -195,-85 -185,-90 -170,-90
+         L -70,-90
+         C -55,-90 -50,-80 -55,-65
+         C -60,-50 -70,-55 -85,-55
+         L -125,-55
+         L -125,-65
+         Z"
+      fill="#0a0a0a"
+    />
+
+    <!-- Letter K -->
+    <!-- Vintage slab letter with curved arms and curled foot -->
+    <path
+      d="M -60,-90
+         L -25,-90
+         L -25,-15
+         L 15,-80
+         C 22,-90 35,-90 50,-85
+         C 55,-75 50,-65 35,-50
+         L 0,0
+         L 45,65
+         C 60,85 55,90 40,90
+         C 25,90 15,80 5,65
+         L -25,20
+         L -25,65
+         C -25,80 -35,85 -50,85
+         L -60,85
+         C -75,85 -85,80 -85,65
+         L -85,-70
+         C -85,-85 -75,-90 -60,-90
+         Z"
+      fill="#0a0a0a"
+    />
+
+    <!-- Letter G -->
+    <!-- Bold curved slab G with vintage carved silhouette and horizontal crossbar -->
+    <path
+      d="M 170,-70
+         C 155,-85 130,-95 105,-95
+         C 60,-95 30,-55 30,0
+         C 30,55 60,95 110,95
+         C 155,95 185,65 185,15
+         L 115,15
+         L 115,-15
+         L 215,-15
+         L 215,25
+         C 215,65 180,125 105,125
+         C 35,125 -10,70 -10,0
+         C -10,-70 35,-125 110,-125
+         C 145,-125 180,-105 200,-75
+         Z"
+      fill="#0a0a0a"
+    />
+  </g>
+</svg>

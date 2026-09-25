@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <rect width="800" height="800" fill="#ffffff" />
+  
+  <g transform="translate(400, 350)">
+    <!-- Red Coral 'C' (Interlocking behind F) -->
+    <!-- High-fashion Didone / Modern Bodoni C -->
+    <path
+      d="M 170,-90
+         C 145,-125 100,-145 40,-145
+         C -60,-145 -145,-75 -145,35
+         C -145,145 -60,215 40,215
+         C 105,215 150,195 170,155
+         L 170,110
+         C 145,150 100,165 45,165
+         C -30,165 -90,105 -90,35
+         C -90,-35 -30,-95 45,-95
+         C 95,-95 140,-80 170,-45
+         Z"
+      fill="#ff3333"
+    />
+
+    <!-- Black 'F' (Overlapping on top of C) -->
+    <!-- High-fashion Didone / Modern Bodoni F with crisp bracketed serifs -->
+    <!-- Main Vertical Stem -->
+    <path
+      d="M -165,-120
+         L -85,-120
+         L -85,-95
+         L -115,-95
+         L -115,165
+         L -75,165
+         L -75,190
+         L -175,190
+         L -175,165
+         L -135,165
+         L -135,-95
+         L -165,-95
+         Z"
+      fill="#000000"
+    />
+    <!-- Top Horizontal Arm & Serif -->
+    <path
+      d="M -115,-120
+         L 65,-120
+         L 65,-40
+         L 40,-40
+         C 40,-75 25,-95 -30,-95
+         L -115,-95
+         Z"
+      fill="#000000"
+    />
+    <!-- Middle Horizontal Arm with Downward Cut Spur -->
+    <path
+      d="M -115,15
+         L 25,15
+         L 25,75
+         L 5,75
+         C 5,45 -5,40 -45,40
+         L -115,40
+         Z"
+      fill="#000000"
+    />
+  </g>
+
+  <!-- Typographic Wordmark -->
+  <text
+    x="400"
+    y="560"
+    text-anchor="middle"
+    font-family="'Inter', 'Syne', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="800"
+    font-size="44"
+    letter-spacing="9"
+    fill="#000000"
+  >
+    FLEEK CLOTHINGS
+  </text>
+  <text
+    x="400"
+    y="615"
+    text-anchor="middle"
+    font-family="'Inter', 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="600"
+    font-size="21"
+    letter-spacing="14"
+    fill="#111111"
+  >
+    FASHION BRAND
+  </text>
+</svg>

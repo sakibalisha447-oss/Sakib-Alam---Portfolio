@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sakib Alam — Visual Technologist & UI/UX Architect Portfolio</title>
+  <meta name="description" content="A dark-mode, futuristic brutalist cyber portfolio and design system for multidisciplinary Graphic & UI/UX Designers." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            heading: ['"Syne"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #070708;
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .font-heading { font-family: 'Syne', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
+    .cyber-grid {
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .text-chrome {
+      background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 35%, #ffffff 50%, #71717a 75%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 25s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Reveal animations */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.21, 0.47, 0.32, 0.98), transform 0.7s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-[#070708] text-white antialiased selection:bg-white selection:text-black min-h-screen overflow-x-hidden">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#070708]/85 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo / Identity -->
+      <a href="#" class="flex items-center gap-2 group">
+        <span class="w-2.5 h-2.5 bg-emerald-400 rounded-xs animate-pulse"></span>
+        <span class="font-mono text-sm tracking-wider font-bold group-hover:text-emerald-400 transition-colors">SAKIB ALAM // 2026</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono text-zinc-400">
+        <a href="#about" class="hover:text-white transition-colors">00. ABOUT</a>
+        <a href="#work" class="hover:text-white transition-colors">01. WORK</a>
+        <a href="#chrome-lab" class="hover:text-emerald-400 text-emerald-400/90 flex items-center gap-1 font-semibold transition-colors">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          02. 3D CHROME
+        </a>
+        <a href="#experiments" class="hover:text-white transition-colors">03. EXPERIMENTS</a>
+        <a href="#process" class="hover:text-white transition-colors">04. PROCESS</a>
+        <a href="#insights" class="hover:text-white transition-colors">05. INSIGHTS</a>
+      </nav>
+
+      <!-- Right Action & Live Telemetry -->
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-2 text-[11px] font-mono text-zinc-400 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+          <span class="text-zinc-500">IST:</span>
+          <span id="live-time" class="text-white font-bold">--:--:--</span>
+        </div>
+        <button onclick="openModal('contact-modal')" class="px-3.5 py-1.5 text-xs font-mono font-bold bg-white text-black hover:bg-emerald-400 transition-colors rounded-sm shadow-sm">
+          LET'S CONNECT
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[90vh] flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 cyber-grid overflow-hidden">
+    <div class="absolute top-24 left-8 text-zinc-700 font-mono text-xs select-none">+</div>
+    <div class="absolute top-24 right-8 text-zinc-700 font-mono text-xs select-none">+</div>
+    <div class="absolute bottom-12 left-8 text-zinc-700 font-mono text-xs select-none">+</div>
+    <div class="absolute bottom-12 right-8 text-zinc-700 font-mono text-xs select-none">+</div>
+
+    <!-- Center Typography -->
+    <div class="relative z-10 my-auto py-12 max-w-6xl mx-auto w-full text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono tracking-widest text-zinc-400 uppercase">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>PORTFOLIO ARCHITECTURE // SELECTED COMMISSIONS 2026</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black font-heading text-white tracking-tighter uppercase leading-[0.95]">
+        Sakib Alam
+      </h1>
+
+      <p class="text-base sm:text-xl md:text-2xl font-light text-zinc-300 max-w-3xl mx-auto tracking-wide leading-relaxed">
+        Graphic Designer, UI/UX Architect & Visual Technologist
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-2.5 pt-2 text-xs font-mono text-zinc-400">
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full">BRAND IDENTITY</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full">PACKAGING SYSTEMS</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full">3D VISUALS</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full">PRODUCT UI/UX</span>
+      </div>
+
+      <div class="pt-4">
+        <a href="#chrome-lab" class="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 border border-emerald-500/30 hover:border-emerald-400/60 px-4 py-1.5 rounded-full transition-all duration-300 hover:scale-105">
+          <span>Interactive 3D Chrome Lab in Middle of Website ↓</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Lower Hero -->
+    <div class="relative z-10 max-w-7xl mx-auto w-full pt-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-7 space-y-4">
+        <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+          Crafting high-precision brand identities, tactical packaging, and futuristic digital products that command attention.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#work" class="px-5 py-2.5 text-xs font-mono text-white bg-white/5 border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all rounded font-bold uppercase tracking-wider">
+            Explore my projects ↘
+          </a>
+          <button onclick="openModal('contact-modal')" class="px-4 py-2.5 text-xs font-mono text-zinc-400 hover:text-white transition-colors">
+            Let's Discuss Opportunities →
+          </button>
+        </div>
+      </div>
+      <div class="md:col-span-5 flex flex-wrap md:justify-end gap-6 text-xs font-mono text-zinc-400">
+        <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn //</a>
+        <a href="https://instagram.com" target="_blank" class="hover:text-white transition-colors">Instagram //</a>
+        <a href="https://dribbble.com" target="_blank" class="hover:text-white transition-colors">Dribbble //</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 00. ARENA INTRO (ABOUT) -->
+  <section id="about" class="py-24 px-6 md:px-12 border-t border-white/10 bg-[#08080a] relative">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="reveal-on-scroll">
+        <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">00 // OPERATIONAL PHILOSOPHY</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">The Digital Colosseum</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div class="md:col-span-8 space-y-6 text-sm sm:text-base text-zinc-300 leading-relaxed reveal-on-scroll">
+          <p>
+            In a saturated modern landscape of algorithmic noise, design is not merely decoration—it is the tactical engineering of trust, clarity, and visceral recall.
+          </p>
+          <p class="text-zinc-400">
+            With 6+ years spanning physical packaging architectures to bleeding-edge WebGL interfaces, every artifact is calibrated for measurable commercial outcomes.
+          </p>
+        </div>
+        <div class="md:col-span-4 grid grid-cols-2 gap-4 reveal-on-scroll">
+          <div class="p-4 bg-white/5 border border-white/10 rounded-lg">
+            <div class="text-2xl sm:text-3xl font-bold font-heading text-emerald-400">45+</div>
+            <div class="text-xs font-mono text-zinc-400 mt-1">Shipped Projects</div>
+          </div>
+          <div class="p-4 bg-white/5 border border-white/10 rounded-lg">
+            <div class="text-2xl sm:text-3xl font-bold font-heading text-white">99.4%</div>
+            <div class="text-xs font-mono text-zinc-400 mt-1">Client Retention</div>
+          </div>
+          <div class="p-4 bg-white/5 border border-white/10 rounded-lg">
+            <div class="text-2xl sm:text-3xl font-bold font-heading text-white">12</div>
+            <div class="text-xs font-mono text-zinc-400 mt-1">Design Honors</div>
+          </div>
+          <div class="p-4 bg-white/5 border border-white/10 rounded-lg">
+            <div class="text-2xl sm:text-3xl font-bold font-heading text-sky-400">&lt;24h</div>
+            <div class="text-xs font-mono text-zinc-400 mt-1">Sprint Velocity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01. FEATURED WORK -->
+  <section id="work" class="py-24 px-6 md:px-12 border-t border-white/10 bg-[#070708] relative">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-8 reveal-on-scroll">
+        <div>
+          <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">01 // COMMISSIONS & CASE STUDIES</div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">Featured Projects</h2>
+        </div>
+        <p class="text-xs font-mono text-zinc-400 max-w-xs">Industrial packaging, dark cyber aesthetics, and SaaS ecosystems.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 reveal-on-scroll">
+          <div class="h-64 bg-gradient-to-br from-zinc-900 to-black p-6 flex items-center justify-center relative overflow-hidden border-b border-white/10">
+            <div class="text-center font-mono space-y-2">
+              <span class="text-4xl">⚡</span>
+              <div class="text-emerald-400 font-bold text-sm tracking-widest">[ PULSE: KINETIC AUDIO ]</div>
+              <div class="text-zinc-500 text-xs">Audio UI & Hardware Packaging</div>
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+              <span>PRJ-01</span>
+              <span>2026</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-emerald-400 transition-colors">Pulse Kinetic DSP</h3>
+            <p class="text-xs text-zinc-400 line-clamp-2">Hardware packaging system and low-latency digital signal visualizer for spatial sound engineers.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 reveal-on-scroll">
+          <div class="h-64 bg-gradient-to-br from-zinc-900 via-neutral-900 to-black p-6 flex items-center justify-center relative overflow-hidden border-b border-white/10">
+            <div class="text-center font-mono space-y-2">
+              <span class="text-4xl">🛡️</span>
+              <div class="text-sky-400 font-bold text-sm tracking-widest">[ VALKYRIE SOVEREIGN ]</div>
+              <div class="text-zinc-500 text-xs">Cryptographic Hardware Key</div>
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+              <span>PRJ-02</span>
+              <span>2025</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition-colors">Valkyrie Key Vault</h3>
+            <p class="text-xs text-zinc-400 line-clamp-2">Titanium cold-storage visual identity, laser-etched packaging specs, and desktop telemetry manager.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 reveal-on-scroll">
+          <div class="h-64 bg-gradient-to-br from-purple-950/40 via-zinc-900 to-black p-6 flex items-center justify-center relative overflow-hidden border-b border-white/10">
+            <div class="text-center font-mono space-y-2">
+              <span class="text-4xl">🔮</span>
+              <div class="text-fuchsia-400 font-bold text-sm tracking-widest">[ AETHERIUM RUNTIME ]</div>
+              <div class="text-zinc-500 text-xs">Decentralized Cloud Dashboard</div>
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+              <span>PRJ-03</span>
+              <span>2025</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-fuchsia-400 transition-colors">Aetherium Cloud Studio</h3>
+            <p class="text-xs text-zinc-400 line-clamp-2">Full-stack multi-region cluster manager with zero-pill brutalist hierarchy and real-time query profiling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. CENTERPIECE: 3D INTERACTIVE CHROME LAB -->
+  <section id="chrome-lab" class="relative py-28 px-6 md:px-12 border-t border-white/10 bg-[#060608] cyber-grid overflow-hidden">
+    <div class="max-w-7xl mx-auto space-y-12 relative z-10">
+      <div class="text-center space-y-4 max-w-3xl mx-auto reveal-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono tracking-widest text-emerald-400 uppercase">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>CENTERPIECE // 3D INTERACTIVE CHROME LAB</span>
+        </div>
+        <h2 class="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-white tracking-tight leading-tight">
+          Liquid Metallic <br />
+          <span class="text-chrome">Dimensions</span>
+        </h2>
+        <p class="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-xl mx-auto">
+          Tactile 3D forms driven by real-time mathematical physics and gyroscopic inertia. Drag, rotate, and manipulate the metallic surfaces directly.
+        </p>
+      </div>
+
+      <!-- Centerpiece Interactive Stage -->
+      <div class="relative max-w-5xl mx-auto bg-[#0a0a0d]/90 border border-white/15 rounded-2xl p-6 sm:p-10 shadow-[0_0_80px_rgba(0,0,0,0.8)] backdrop-blur-md flex flex-col items-center justify-center reveal-on-scroll">
+        <div class="w-full flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5 mb-6 text-xs font-mono text-zinc-400">
+          <div class="flex items-center gap-3">
+            <span class="text-white font-bold tracking-wider">[ 3D_CHROME_ARTIFACT ]</span>
+            <span class="hidden sm:inline text-zinc-600">|</span>
+            <span id="canvas-euler" class="hidden sm:inline text-zinc-400">EULER: 23° / 48°</span>
+          </div>
+          <div class="flex items-center gap-3 text-[11px]">
+            <span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-emerald-400 font-bold">60 FPS</span>
+            <span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-sky-400">REALTIME GYROSCOPE</span>
+          </div>
+        </div>
+
+        <!-- 3D Canvas -->
+        <div class="relative my-4 flex items-center justify-center">
+          <canvas id="chromeCanvas" width="460" height="460" class="cursor-grab active:cursor-grabbing rounded-full shadow-2xl max-w-full"></canvas>
+          <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 pointer-events-none whitespace-nowrap">
+            <span class="text-[10px] font-mono tracking-widest text-zinc-300 uppercase bg-black/90 px-4 py-1.5 border border-white/20 rounded-full shadow-2xl">
+              Drag to Rotate · Mouse Tilt Active
+            </span>
+          </div>
+        </div>
+
+        <!-- Material & Physics Controls -->
+        <div class="w-full mt-10 pt-6 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+          <!-- Material Finish -->
+          <div class="space-y-2">
+            <label class="text-[10px] text-zinc-500 uppercase tracking-wider block">Surface Material Finish</label>
+            <div class="grid grid-cols-2 gap-1.5" id="theme-buttons">
+              <button onclick="setTheme('chrome')" class="theme-btn px-3 py-1.5 rounded text-[11px] border bg-white text-black font-bold border-white">Liquid Chrome</button>
+              <button onclick="setTheme('iridescent')" class="theme-btn px-3 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10">Prismatic</button>
+              <button onclick="setTheme('gold')" class="theme-btn px-3 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10">Imperial Gold</button>
+              <button onclick="setTheme('obsidian')" class="theme-btn px-3 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10">Dark Obsidian</button>
+            </div>
+          </div>
+
+          <!-- Geometric Topology -->
+          <div class="space-y-2">
+            <label class="text-[10px] text-zinc-500 uppercase tracking-wider block">Geometric Topology</label>
+            <div class="grid grid-cols-3 gap-1.5" id="geo-buttons">
+              <button onclick="setGeometry('interlocking')" class="geo-btn px-2.5 py-1.5 rounded text-[11px] border bg-emerald-500 text-black font-bold border-emerald-400">Interlock</button>
+              <button onclick="setGeometry('gyro')" class="geo-btn px-2.5 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10">Gyro</button>
+              <button onclick="setGeometry('torus')" class="geo-btn px-2.5 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10">Ring</button>
+            </div>
+          </div>
+
+          <!-- Speed -->
+          <div class="space-y-2">
+            <label class="text-[10px] text-zinc-500 uppercase tracking-wider block">Rotation Dynamics</label>
+            <div class="flex items-center gap-2">
+              <button onclick="setSpeed(0.5)" class="speed-btn flex-1 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10">0.5x</button>
+              <button onclick="setSpeed(1.0)" class="speed-btn flex-1 py-1.5 rounded text-[11px] border bg-amber-400 text-black font-bold border-amber-300">1.0x</button>
+              <button onclick="setSpeed(2.0)" class="speed-btn flex-1 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10">2.0x</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. PIXEL EXPERIMENTS -->
+  <section id="experiments" class="py-24 px-6 md:px-12 border-t border-white/10 bg-[#070708] relative">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-8 reveal-on-scroll">
+        <div>
+          <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">03 // LAB PLAYGROUND & EXPERIMENTAL R&D</div>
+          <h2 class="text-4xl sm:text-6xl font-extrabold font-heading text-white tracking-tight leading-none">
+            Pixel Experiments <br /><span class="text-zinc-500">Gone Wild</span>
+          </h2>
+        </div>
+        <div class="text-xs font-mono text-zinc-400">
+          Uncompromised 1:1 image fidelity · Drop custom artwork directly
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Exp 1 -->
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl overflow-hidden flex flex-col justify-between shadow-2xl reveal-on-scroll">
+          <div class="relative h-72 bg-black flex items-center justify-center p-3 border-b border-white/10">
+            <div class="font-mono text-center space-y-2">
+              <div class="text-emerald-400 text-xs font-bold">[ EXP-001 // CEREBRAL VOID ]</div>
+              <p class="text-zinc-500 text-[11px]">Volumetric particle refraction</p>
+            </div>
+          </div>
+          <div class="p-5 font-mono space-y-2 bg-[#0b0b0e]">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-white font-bold">EXP_001</span>
+              <span class="text-zinc-400 text-[11px] px-2 py-0.5 bg-white/5 border border-white/10 rounded">3D Render</span>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white group-hover:text-emerald-400 transition-colors">Cerebral Void Structure</h3>
+            <p class="text-xs text-zinc-400 font-sans">Multi-pass subsurface scattering exploration examining photonic dispersion.</p>
+          </div>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl overflow-hidden flex flex-col justify-between shadow-2xl reveal-on-scroll">
+          <div class="relative h-72 bg-black flex items-center justify-center p-3 border-b border-white/10">
+            <div class="font-mono text-center space-y-2">
+              <div class="text-sky-400 text-xs font-bold">[ EXP-002 // CYBER PRISM ]</div>
+              <p class="text-zinc-500 text-[11px]">Sub-pixel grid interference</p>
+            </div>
+          </div>
+          <div class="p-5 font-mono space-y-2 bg-[#0b0b0e]">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-white font-bold">EXP_002</span>
+              <span class="text-zinc-400 text-[11px] px-2 py-0.5 bg-white/5 border border-white/10 rounded">Shader Art</span>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white group-hover:text-sky-400 transition-colors">Cyber Prism Matrix</h3>
+            <p class="text-xs text-zinc-400 font-sans">Procedural moiré pattern interference generated with mathematical wave equations.</p>
+          </div>
+        </div>
+
+        <!-- Exp 3 -->
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl overflow-hidden flex flex-col justify-between shadow-2xl reveal-on-scroll">
+          <div class="relative h-72 bg-black flex items-center justify-center p-3 border-b border-white/10">
+            <div class="font-mono text-center space-y-2">
+              <div class="text-purple-400 text-xs font-bold">[ EXP-003 // NEURAL CHROME ]</div>
+              <p class="text-zinc-500 text-[11px]">Ferrofluidic metal mechanics</p>
+            </div>
+          </div>
+          <div class="p-5 font-mono space-y-2 bg-[#0b0b0e]">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-white font-bold">EXP_003</span>
+              <span class="text-zinc-400 text-[11px] px-2 py-0.5 bg-white/5 border border-white/10 rounded">Typography</span>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white group-hover:text-purple-400 transition-colors">Neural Chrome Kinetics</h3>
+            <p class="text-xs text-zinc-400 font-sans">High-gloss topological displacement studies reacting to environmental acoustics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. DESIGN PROCESS -->
+  <section id="process" class="py-24 px-6 md:px-12 border-t border-white/10 bg-[#070708] relative">
+    <div class="max-w-7xl mx-auto space-y-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8 reveal-on-scroll">
+        <div>
+          <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">04 // METHODOLOGY & SYSTEM ARCHITECTURE</div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">My Design Process</h2>
+        </div>
+        <div class="text-xs font-mono text-zinc-400 max-w-sm">
+          A rigorous 7-stage design engineering cycle bridging stakeholder discovery to verified production handoff.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <!-- Process Accordion Steps -->
+        <div class="lg:col-span-6 space-y-3 reveal-on-scroll" id="process-list">
+          <div onclick="selectProcess(1)" class="process-item group p-5 rounded-xl border border-white/30 bg-[#101014] cursor-pointer transition-all">
+            <span class="text-xs font-mono font-bold text-emerald-400">01. DISCOVERY & BRIEF</span>
+            <h3 class="text-lg font-bold font-heading text-white mt-1">Deep Tactical Discovery</h3>
+            <p class="text-xs font-sans text-zinc-400 mt-1">Extracting core brand goals, competitor matrices, and audience mental models.</p>
+          </div>
+          <div onclick="selectProcess(2)" class="process-item group p-5 rounded-xl border border-white/10 hover:border-white/20 bg-transparent cursor-pointer transition-all">
+            <span class="text-xs font-mono font-bold text-zinc-500">02. MOODBOARDING</span>
+            <h3 class="text-lg font-bold font-heading text-zinc-300 mt-1">Visual Direction & Moodboard</h3>
+            <p class="text-xs font-sans text-zinc-400 mt-1">Curating brutalist textures, color palettes, and typographic benchmarks.</p>
+          </div>
+          <div onclick="selectProcess(3)" class="process-item group p-5 rounded-xl border border-white/10 hover:border-white/20 bg-transparent cursor-pointer transition-all">
+            <span class="text-xs font-mono font-bold text-zinc-500">03. PROTOTYPING</span>
+            <h3 class="text-lg font-bold font-heading text-zinc-300 mt-1">Rapid Wireframes & 3D Form</h3>
+            <p class="text-xs font-sans text-zinc-400 mt-1">Iterative spatial layouts and packaging dielines tested against ergonomics.</p>
+          </div>
+          <div onclick="selectProcess(4)" class="process-item group p-5 rounded-xl border border-white/10 hover:border-white/20 bg-transparent cursor-pointer transition-all">
+            <span class="text-xs font-mono font-bold text-zinc-500">04. HANDOFF</span>
+            <h3 class="text-lg font-bold font-heading text-zinc-300 mt-1">Design Token System & Code Ready</h3>
+            <p class="text-xs font-sans text-zinc-400 mt-1">Comprehensive token libraries, SVG assets, and production print files.</p>
+          </div>
+        </div>
+
+        <!-- Deliverable Preview Panel -->
+        <div class="lg:col-span-6 lg:sticky lg:top-28 reveal-on-scroll">
+          <div class="bg-[#0b0b0e] border border-white/15 rounded-2xl p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 text-xs font-mono">
+              <span class="text-emerald-400 font-bold" id="proc-badge">PHASE 01 // DISCOVERY</span>
+              <span class="text-zinc-500">VERIFIED DELIVERABLE</span>
+            </div>
+            <h4 class="text-xl font-bold font-heading text-white" id="proc-title">Strategic Requirement Blueprint</h4>
+            <p class="text-xs text-zinc-300 leading-relaxed" id="proc-desc">
+              Comprehensive analysis document synthesizing client objectives, target demographics, technical packaging requirements, and competitive differentiators.
+            </p>
+            <div class="p-4 bg-black/60 border border-white/10 rounded-lg text-xs font-mono space-y-2">
+              <div class="text-zinc-400">OUTPUT ARTIFACTS:</div>
+              <ul class="text-zinc-300 space-y-1 list-disc list-inside" id="proc-artifacts">
+                <li>Competitor Matrix Breakdown</li>
+                <li>Design Requirement Specification (DRS)</li>
+                <li>User Mental Model Journey Map</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. INSIGHTS -->
+  <section id="insights" class="py-24 px-6 md:px-12 border-t border-white/10 bg-[#070708] relative">
+    <div class="max-w-7xl mx-auto space-y-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8 reveal-on-scroll">
+        <div>
+          <div class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">05 // THOUGHT LEADERSHIP & FRAMEWORKS</div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">Latest Design Thoughts & Insights</h2>
+        </div>
+        <div class="text-xs font-mono text-zinc-400 max-w-sm">
+          Critical perspectives on behavioral economics, design systems governance, and design tool automation.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 reveal-on-scroll">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+              <span class="text-white font-bold">ART-01</span>
+              <span>Systems · 4 min</span>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white group-hover:text-emerald-400 transition-colors">The Death of Bland Corporate Minimalism</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">Why tactical brutality and hyper-textured visuals are reclaiming user engagement from generic UI kits.</p>
+          </div>
+          <div class="pt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white">
+            <span>Read Article</span>
+            <span>↗</span>
+          </div>
+        </div>
+
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 reveal-on-scroll">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+              <span class="text-white font-bold">ART-02</span>
+              <span>Packaging · 6 min</span>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white group-hover:text-emerald-400 transition-colors">Tactile Physics in Luxury Tech Packaging</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">Deconstructing unboxing friction, paper grammages, and unboxing psychology for premium hardware.</p>
+          </div>
+          <div class="pt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white">
+            <span>Read Article</span>
+            <span>↗</span>
+          </div>
+        </div>
+
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 reveal-on-scroll">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+              <span class="text-white font-bold">ART-03</span>
+              <span>3D Web · 5 min</span>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white group-hover:text-emerald-400 transition-colors">Real-Time Metal Shading at 60 FPS</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">Techniques for fluid interactive metallic materials using trigonometric surface projections without WebGL bloat.</p>
+          </div>
+          <div class="pt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white">
+            <span>Read Article</span>
+            <span>↗</span>
+          </div>
+        </div>
+
+        <div class="group bg-[#0b0b0e] border border-white/10 hover:border-white/30 rounded-xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 reveal-on-scroll">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-500">
+              <span class="text-white font-bold">ART-04</span>
+              <span>Typography · 3 min</span>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white group-hover:text-emerald-400 transition-colors">Monospace Ingestion in High-Density UX</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">How terminal monospace grids enhance cognitive parsing speed in financial and analytics dashboards.</p>
+          </div>
+          <div class="pt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white">
+            <span>Read Article</span>
+            <span>↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="relative bg-[#050506] border-t border-white/10 pt-20 pb-12 overflow-hidden">
+    <div class="w-full overflow-hidden border-y border-white/10 py-6 bg-black/60 select-none cursor-pointer" onclick="openModal('contact-modal')">
+      <div class="animate-marquee whitespace-nowrap">
+        <span class="text-4xl sm:text-6xl md:text-7xl font-black font-heading text-white tracking-tight hover:text-emerald-400 transition-colors mx-4">
+          Let's Connect • Let's Connect • Let's Connect • Let's Connect • Let's Connect • Let's Connect •
+        </span>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="max-w-md space-y-3">
+            <h3 class="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight leading-tight">
+              Ready to elevate your digital presence?
+            </h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Accepting select visual identity commissions, packaging systems, and digital product architecture sprints for 2026.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button onclick="openModal('contact-modal')" class="px-6 py-3 text-xs font-mono font-bold text-white bg-white/5 border border-white/25 hover:border-white hover:bg-white hover:text-black transition-all rounded uppercase tracking-wider">
+              Let's Connect !
+            </button>
+            <button onclick="copyEmail()" class="px-4 py-3 text-xs font-mono text-zinc-400 hover:text-white border border-white/10 hover:border-white/30 rounded transition-colors" id="copy-btn">
+              Copy Direct Email //
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col items-start lg:items-end justify-between space-y-4 text-xs font-mono text-zinc-400">
+          <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">in LinkedIn //</a>
+          <a href="mailto:sakibalisha447@gmail.com" class="hover:text-white transition-colors">Email ID // sakibalisha447@gmail.com</a>
+          <a href="https://instagram.com" target="_blank" class="hover:text-white transition-colors">Instagram //</a>
+          <a href="https://dribbble.com" target="_blank" class="hover:text-white transition-colors">Dribbble //</a>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+        <div>Sakib Alam © 2026 // All rights reserved.</div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative bg-[#0c0c0f] border border-white/20 rounded-xl p-8 max-w-md w-full shadow-2xl space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <div class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">TRANSMISSION CHANNEL</div>
+          <h3 class="text-xl font-bold font-heading text-white">Let's Connect</h3>
+        </div>
+        <button onclick="closeModal('contact-modal')" class="text-zinc-400 hover:text-white text-xl font-mono">✕</button>
+      </div>
+      <p class="text-xs text-zinc-400">Directly contact Sakib Alam for brand architecture, 3D commissions, or design systems.</p>
+      <div class="p-4 bg-white/5 border border-white/10 rounded font-mono text-xs text-zinc-300">
+        <div>EMAIL: <span class="text-white font-bold">sakibalisha447@gmail.com</span></div>
+        <div class="text-[10px] text-zinc-500 mt-1">Response window: &lt; 12 hours</div>
+      </div>
+      <div class="flex gap-3">
+        <a href="mailto:sakibalisha447@gmail.com" class="flex-1 py-2.5 bg-white text-black font-bold font-mono text-xs rounded text-center hover:bg-emerald-400 transition-colors">
+          Open Mail Client ↗
+        </a>
+        <button onclick="copyEmail(); closeModal('contact-modal');" class="flex-1 py-2.5 bg-white/10 text-white font-mono text-xs rounded hover:bg-white/20 transition-colors">
+          Copy Email Address
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC (3D Canvas, Telemetry, Scroll Reveal, Controls) -->
+  <script>
+    // Live IST Clock
+    function updateClock() {
+      const now = new Date();
+      const istTime = now.toLocaleTimeString('en-US', {
+        timeZone: 'Asia/Kolkata',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      });
+      const el = document.getElementById('live-time');
+      if (el) el.textContent = istTime + ' IST';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Scroll Reveal Observer
+    const revealEls = document.querySelectorAll('.reveal-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach((el) => observer.observe(el));
+
+    // Modals
+    function openModal(id) {
+      document.getElementById(id)?.classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id)?.classList.add('hidden');
+    }
+    function copyEmail() {
+      navigator.clipboard.writeText('sakibalisha447@gmail.com');
+      const btn = document.getElementById('copy-btn');
+      if (btn) {
+        btn.textContent = 'Email Copied! ✓';
+        setTimeout(() => { btn.textContent = 'Copy Direct Email //'; }, 2000);
+      }
+    }
+
+    // Process selection
+    const processData = {
+      1: {
+        badge: 'PHASE 01 // DISCOVERY',
+        title: 'Strategic Requirement Blueprint',
+        desc: 'Comprehensive analysis document synthesizing client objectives, target demographics, technical packaging requirements, and competitive differentiators.',
+        artifacts: ['Competitor Matrix Breakdown', 'Design Requirement Specification (DRS)', 'User Mental Model Journey Map']
+      },
+      2: {
+        badge: 'PHASE 02 // MOODBOARDING',
+        title: 'Aesthetic Benchmarks & Chromatic Deck',
+        desc: 'Curated visual language exploring brutalist cybernetics, custom typographic pairings, metallic finish palettes, and physical print substrates.',
+        artifacts: ['Material Texture Catalog', 'Typographic Hierarchy Specs', 'Color & Luminescence System']
+      },
+      3: {
+        badge: 'PHASE 03 // PROTOTYPING',
+        title: 'Interactive 3D Form & Ergonomic Dielines',
+        desc: 'Iterative digital wireframes, interactive component states, and physical structural packaging mockups engineered for rapid user feedback.',
+        artifacts: ['Interactive Web Prototypes', 'Physical Die-Cut Vector Blueprints', 'Motion Dynamic Choreography']
+      },
+      4: {
+        badge: 'PHASE 04 // HANDOFF',
+        title: 'Production Design Tokens & Code Ready System',
+        desc: 'Production-ready vector assets, full CSS/Tailwind design tokens, component libraries, and pre-press verified print files.',
+        artifacts: ['Tailwind Design Token Repository', 'Spot-Color Pantones & Foil Masks', 'Component Documentation Library']
+      }
+    };
+    function selectProcess(num) {
+      const data = processData[num];
+      if (!data) return;
+      document.getElementById('proc-badge').textContent = data.badge;
+      document.getElementById('proc-title').textContent = data.title;
+      document.getElementById('proc-desc').textContent = data.desc;
+      const list = document.getElementById('proc-artifacts');
+      list.innerHTML = data.artifacts.map(a => `<li>${a}</li>`).join('');
+
+      // Highlight active step
+      const items = document.querySelectorAll('.process-item');
+      items.forEach((item, idx) => {
+        if (idx === num - 1) {
+          item.className = 'process-item group p-5 rounded-xl border border-white/30 bg-[#101014] cursor-pointer transition-all';
+        } else {
+          item.className = 'process-item group p-5 rounded-xl border border-white/10 hover:border-white/20 bg-transparent cursor-pointer transition-all';
+        }
+      });
+    }
+
+    // 3D CHROME CANVAS ENGINE
+    const canvas = document.getElementById('chromeCanvas');
+    const ctx = canvas.getContext('2d');
+    let theme = 'chrome';
+    let geometry = 'interlocking';
+    let speed = 1.0;
+    let angleX = 23;
+    let angleY = 48;
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      lastMouseX = e.clientX;
+      lastMouseY = e.clientY;
+    });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        const deltaX = e.clientX - lastMouseX;
+        const deltaY = e.clientY - lastMouseY;
+        angleY += deltaX * 0.6;
+        angleX += deltaY * 0.6;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+      }
+    });
+
+    function setTheme(t) {
+      theme = t;
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        if (btn.getAttribute('onclick').includes(t)) {
+          btn.className = 'theme-btn px-3 py-1.5 rounded text-[11px] border bg-white text-black font-bold border-white';
+        } else {
+          btn.className = 'theme-btn px-3 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10';
+        }
+      });
+    }
+
+    function setGeometry(g) {
+      geometry = g;
+      document.querySelectorAll('.geo-btn').forEach(btn => {
+        if (btn.getAttribute('onclick').includes(g)) {
+          btn.className = 'geo-btn px-2.5 py-1.5 rounded text-[11px] border bg-emerald-500 text-black font-bold border-emerald-400';
+        } else {
+          btn.className = 'geo-btn px-2.5 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10';
+        }
+      });
+    }
+
+    function setSpeed(s) {
+      speed = s;
+      document.querySelectorAll('.speed-btn').forEach(btn => {
+        if (btn.getAttribute('onclick').includes(s.toString())) {
+          btn.className = 'speed-btn flex-1 py-1.5 rounded text-[11px] border bg-amber-400 text-black font-bold border-amber-300';
+        } else {
+          btn.className = 'speed-btn flex-1 py-1.5 rounded text-[11px] border bg-white/5 text-zinc-400 border-white/10';
+        }
+      });
+    }
+
+    // Animation Loop for 3D Chrome Canvas
+    function renderChrome() {
+      if (!isDragging) {
+        angleY += 0.8 * speed;
+        angleX += 0.4 * speed;
+      }
+      
+      const eulerEl = document.getElementById('canvas-euler');
+      if (eulerEl) {
+        eulerEl.textContent = `EULER: ${Math.round(angleX % 360)}° / ${Math.round(angleY % 360)}°`;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+
+      // Ambient radial glow
+      const glow = ctx.createRadialGradient(cx, cy, 30, cx, cy, 210);
+      if (theme === 'chrome') {
+        glow.addColorStop(0, 'rgba(255, 255, 255, 0.12)');
+        glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      } else if (theme === 'iridescent') {
+        glow.addColorStop(0, 'rgba(236, 72, 153, 0.15)');
+        glow.addColorStop(0.5, 'rgba(56, 189, 248, 0.1)');
+        glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      } else if (theme === 'gold') {
+        glow.addColorStop(0, 'rgba(234, 179, 8, 0.15)');
+        glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      } else {
+        glow.addColorStop(0, 'rgba(113, 113, 122, 0.1)');
+        glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      }
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, 210, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Draw mathematical 3D rings
+      const radX = (angleX * Math.PI) / 180;
+      const radY = (angleY * Math.PI) / 180;
+
+      const rings = geometry === 'interlocking' ? [0, Math.PI / 2] : geometry === 'gyro' ? [0, Math.PI / 3, (2 * Math.PI) / 3] : [0];
+
+      rings.forEach((baseAngle, ringIdx) => {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(radY + baseAngle);
+
+        const rMajor = 135 - ringIdx * 15;
+        const rMinor = 22;
+
+        const grad = ctx.createLinearGradient(-rMajor, -rMajor, rMajor, rMajor);
+        if (theme === 'chrome') {
+          grad.addColorStop(0.0, '#ffffff');
+          grad.addColorStop(0.2, '#71717a');
+          grad.addColorStop(0.4, '#ffffff');
+          grad.addColorStop(0.6, '#27272a');
+          grad.addColorStop(0.8, '#a1a1aa');
+          grad.addColorStop(1.0, '#ffffff');
+        } else if (theme === 'iridescent') {
+          grad.addColorStop(0.0, '#38bdf8');
+          grad.addColorStop(0.3, '#ec4899');
+          grad.addColorStop(0.6, '#a855f7');
+          grad.addColorStop(0.8, '#34d399');
+          grad.addColorStop(1.0, '#38bdf8');
+        } else if (theme === 'gold') {
+          grad.addColorStop(0.0, '#fef08a');
+          grad.addColorStop(0.3, '#ca8a04');
+          grad.addColorStop(0.6, '#fef9c3');
+          grad.addColorStop(0.8, '#854d0e');
+          grad.addColorStop(1.0, '#eab308');
+        } else {
+          grad.addColorStop(0.0, '#27272a');
+          grad.addColorStop(0.4, '#09090b');
+          grad.addColorStop(0.7, '#3f3f46');
+          grad.addColorStop(1.0, '#18181b');
+        }
+
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = rMinor;
+        ctx.lineCap = 'round';
+        ctx.shadowColor = theme === 'iridescent' ? 'rgba(236,72,153,0.5)' : theme === 'gold' ? 'rgba(234,179,8,0.4)' : 'rgba(255,255,255,0.4)';
+        ctx.shadowBlur = 18;
+
+        ctx.beginPath();
+        const squash = Math.cos(radX + baseAngle * 0.5);
+        ctx.ellipse(0, 0, rMajor, Math.max(12, Math.abs(rMajor * squash)), 0, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.restore();
+      });
+
+      requestAnimationFrame(renderChrome);
+    }
+    renderChrome();
+  </script>
+</body>
+</html>
